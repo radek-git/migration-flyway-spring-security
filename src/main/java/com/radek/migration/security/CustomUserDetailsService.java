@@ -28,5 +28,5 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     //dodac rejestracje uzytkownikow
     // domyslnie uzytkownik ma miec role user przy rejestracji
-    // zrobic andpoint rejestracja(publiczna /activate/{activation_hash}) i aktywacja konta()
+    // zrobic endpoint rejestracja(publiczna /activate?token=ghgjhgjhgjh) i aktywacja konta()
 }

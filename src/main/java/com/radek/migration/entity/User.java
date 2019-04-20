@@ -19,10 +19,6 @@ import java.util.UUID;
 @RequiredArgsConstructor // czyli takie pola które mają anotację @NonNull
 public class User extends AbstractEntity {
 
-    @PrePersist //metoda z tą anotacją wykonuje się przed wysłaniem do bazy danych
-    private void prePersist() {
-        activationHash = UUID.randomUUID().toString().replaceAll("-", "");
-    }
 
     @NonNull
     @NotEmpty
@@ -66,8 +62,9 @@ public class User extends AbstractEntity {
     @Column(name = "enabled")
     private boolean isEnabled;
 
-    @Column(name = "activation_hash")
-    private String activationHash;
+    @OneToOne(optional = false,  cascade = CascadeType.ALL)
+    @JoinColumn(name = "activation_token_id", referencedColumnName = "id")
+    private ActivationToken activationToken;
 
 
 

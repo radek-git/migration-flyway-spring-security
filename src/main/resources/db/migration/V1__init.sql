@@ -9,7 +9,7 @@ create table users (
     locked boolean not null default false,
     credentials_expired boolean not null default false,
     enabled boolean not null default false,
-    activation_hash varchar(32) not null unique
+    activation_token_id bigint not null unique
 );
 
 create table roles (
@@ -25,3 +25,10 @@ create table user_roles(
     foreign key (role_id) references roles(id),
     primary key (user_id, role_id)
 );
+
+create table activation_tokens (
+    id bigint not null primary key auto_increment,
+    value varchar(32) not null unique ,
+    creation_date datetime not null ,
+    expiration_date datetime not null
+)

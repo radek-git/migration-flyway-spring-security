@@ -26,7 +26,4 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new CustomUserDetails(user);
     }
 
-    //dodac rejestracje uzytkownikow
-    // domyslnie uzytkownik ma miec role user przy rejestracji
-    // zrobic endpoint rejestracja(publiczna /activate?token=ghgjhgjhgjh) i aktywacja konta()
 }
